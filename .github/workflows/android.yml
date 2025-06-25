@@ -32,3 +32,13 @@ jobs:
       run: ./gradlew build
     - name: Build Debug APK
       run: ./gradlew assembleDebug
+      
+    - name: Upload debug build
+      uses: actions/upload-artifact@main
+      with:
+        name: app-debug.apk
+        path: app/build/app-debug.apk
+    - name: Collect debug build
+      uses: actions/download-artifact@main
+      with:
+        name: app-debug.apk
